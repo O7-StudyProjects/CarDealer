@@ -1,0 +1,29 @@
+<UserControl x:Class="CarDealer.Views.DealerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:CarDealer.Views"
+             xmlns:vm="clr-namespace:CarDealer.ViewModels"
+             xmlns:m="clr-namespace:CarDealer.Models"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="500">
+    <UserControl.DataContext>
+        <vm:DealerViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <DataGrid x:Name="Dealers" IsReadOnly="False" AutoGenerateColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeRows="False"
+                  MaxColumnWidth="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabControl}}}"
+                  ItemsSource="{Binding Path=(vm:DealerViewModel.Dealers)}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=(m:Dealer.Id)}" IsReadOnly="True" Width="30"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=(m:Dealer.Name)}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Path=(m:Dealer.Address)}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Bank Account" Binding="{Binding Path=(m:Dealer.BankAccount)}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="CEO" Binding="{Binding Path=(m:Dealer.CEO)}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="ChiefAccountant" Binding="{Binding Path=(m:Dealer.ChiefAccountant)}" IsReadOnly="True" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

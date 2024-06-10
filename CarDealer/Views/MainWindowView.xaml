@@ -1,0 +1,75 @@
+﻿<Window x:Class="CarDealer.Views.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:CarDealer.ViewModels"
+        xmlns:v="clr-namespace:CarDealer.Views"
+        mc:Ignorable="d"
+        Title="MainWindowView" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem.Items>
+                    <MenuItem Header="Generate" Click="GenerateMenuItem_OnClick"/>
+                    <MenuItem Header="Clear" Click="MenuItem_OnClick"/>
+                </MenuItem.Items>
+            </MenuItem>
+            <MenuItem x:Name="LastOp" Header="Last operation" Click="MenuItem_OnClick" IsEnabled="False"/>
+        </Menu>
+
+        <TabControl Grid.Row="1" Margin="1,1,1,1">
+            <TabControl.Resources>
+                <Style TargetType="TabItem" BasedOn="{StaticResource NoDottedBorder}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+                                <Border MaxWidth="150" x:Name="Border" BorderThickness="1,1,1,0" BorderBrush="Gainsboro" CornerRadius="4,4,0,0" Margin="2,0">
+                                    <StackPanel MaxWidth="150" Orientation="Horizontal">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header"
+                                                          MaxWidth="115" MaxHeight="20" MinHeight="20" Height="20" Margin="4,4,4,0"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="LightSkyBlue"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="False">
+                                        <Setter TargetName="Border" Property="Background" Value="GhostWhite"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabControl.Items>
+                <TabItem Header="Contracts" IsSelected="True">
+                    <v:ContractView x:Name="ContractView"/>
+                </TabItem>
+                <TabItem Header="Account Statements">
+                    <v:AccountStatementView x:Name="AccountStatementView"/>
+                </TabItem>
+                <TabItem Header="Cars">
+                    <v:CarView x:Name="CarView"/>
+                </TabItem>
+                <TabItem Header="Clients">
+                    <v:ClientView x:Name="ClientView"/>
+                </TabItem>
+                <TabItem Header="Dealers">
+                    <v:DealerView x:Name="DealerView"/>
+                </TabItem>
+            </TabControl.Items>
+        </TabControl>
+    </Grid>
+</Window>

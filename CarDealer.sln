@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMail", "EMail\EMail.csproj", "{8F1E37E9-85D8-4666-996D-A446F4A14CCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDealer", "CarDealer\CarDealer.csproj", "{8F1E37E9-85D8-4666-996D-A446F4A14CCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

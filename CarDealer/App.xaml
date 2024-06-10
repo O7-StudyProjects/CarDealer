@@ -1,0 +1,14 @@
+﻿<Application x:Class="CarDealer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CarDealer"
+             StartupUri="/Views/MainWindowView.xaml">
+    <Application.Resources>
+        <Style x:Key="NoDottedBorder" TargetType="{x:Type Control}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        </Style>
+        <Style TargetType="ToggleButton" BasedOn="{StaticResource NoDottedBorder}"/>
+        <Style TargetType="Button" BasedOn="{StaticResource NoDottedBorder}"/>
+        <Style TargetType="TabControl" BasedOn="{StaticResource NoDottedBorder}"/>
+    </Application.Resources>
+</Application>
