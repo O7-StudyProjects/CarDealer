@@ -7,5 +7,5 @@ namespace CarDealer.ViewModels;
 
 public class CarViewModel : ViewModelBase
 {
-	public ObservableCollection<Car> Cars { get; set; } = [];
+	public ObservableCollection<Car> Cars { get; } = [];
 }

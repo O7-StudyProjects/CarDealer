@@ -20,11 +20,17 @@
         <Menu Grid.Row="0">
             <MenuItem Header="File">
                 <MenuItem.Items>
-                    <MenuItem Header="Generate" Click="GenerateMenuItem_OnClick"/>
-                    <MenuItem Header="Clear" Click="MenuItem_OnClick"/>
+                    <MenuItem Header="Generate">
+                        <MenuItem.Items>
+                            <MenuItem x:Name="ParallelItem" Header="Parallel" Click="GenerateMenuItem_OnClick"/>
+                            <MenuItem Header="Consecutive" Click="GenerateMenuItem_OnClick"/>
+                        </MenuItem.Items>
+                    </MenuItem>
+
+                    <MenuItem Header="Clear" Click="ClearMenuItem_OnClick"/>
                 </MenuItem.Items>
             </MenuItem>
-            <MenuItem x:Name="LastOp" Header="Last operation" Click="MenuItem_OnClick" IsEnabled="False"/>
+            <MenuItem x:Name="LastOp" Header="Last operation" Click="ClearMenuItem_OnClick" IsEnabled="False"/>
         </Menu>
 
         <TabControl Grid.Row="1" Margin="1,1,1,1">
@@ -54,11 +60,11 @@
                 </Style>
             </TabControl.Resources>
             <TabControl.Items>
-                <TabItem Header="Contracts" IsSelected="True">
-                    <v:ContractView x:Name="ContractView"/>
-                </TabItem>
                 <TabItem Header="Account Statements">
                     <v:AccountStatementView x:Name="AccountStatementView"/>
+                </TabItem>
+                <TabItem Header="Contracts" IsSelected="True">
+                    <v:ContractView x:Name="ContractView"/>
                 </TabItem>
                 <TabItem Header="Cars">
                     <v:CarView x:Name="CarView"/>

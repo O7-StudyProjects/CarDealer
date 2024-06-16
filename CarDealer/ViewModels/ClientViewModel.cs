@@ -6,5 +6,5 @@ namespace CarDealer.ViewModels;
 
 public class ClientViewModel : ViewModelBase
 {
-	public ObservableCollection<Client> Clients { get; set; } = [];
+	public ObservableCollection<Client> Clients { get; } = [];
 }
