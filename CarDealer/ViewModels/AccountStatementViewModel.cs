@@ -6,5 +6,5 @@ namespace CarDealer.ViewModels;
 
 public class AccountStatementViewModel : ViewModelBase
 {
-	public ObservableCollection<AccountStatement> AccountStatements { get; set; } = [];
+	public ObservableCollection<AccountStatement> AccountStatements { get; } = [];
 }
