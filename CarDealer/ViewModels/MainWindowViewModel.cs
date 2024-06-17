@@ -186,12 +186,9 @@ public class MainWindowViewModel : ViewModelBase
 
 	public async Task ClearData()
 	{
-		await using var batch = DataSource.CreateBatch();
-		batch.BatchCommands.Add(new("DELETE FROM account_statement"));
-		batch.BatchCommands.Add(new("DELETE FROM contract"));
-		batch.BatchCommands.Add(new("DELETE FROM car"));
-		batch.BatchCommands.Add(new("DELETE FROM client"));
-		batch.BatchCommands.Add(new("DELETE FROM dealer"));
-		await batch.ExecuteNonQueryAsync();
+		await using var command = DataSource.CreateCommand(
+			"TRUNCATE account_statement, contract, car, client, dealer RESTART IDENTITY"
+		);
+		await command.ExecuteNonQueryAsync();
 	}
 }

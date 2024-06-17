@@ -22,8 +22,4 @@
       </Page>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Views\ResourceDictionaries\" />
-    </ItemGroup>
-
 </Project>
